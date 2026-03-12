@@ -14,6 +14,15 @@ cp target/wasm32-unknown-unknown/release/plugin.wasm ../build/rust_plugin.wasm
 
 echo "Build complete: build/rust_plugin.wasm"
 
+
+# Build example-plugin2 (WASM)
+cd ../example-plugin2
+cargo build --release --target wasm32-unknown-unknown
+mkdir -p ../build
+cp target/wasm32-unknown-unknown/release/plugin2.wasm ../build/rust_plugin2.wasm
+
+echo "Build complete: build/rust_plugin2.wasm"
+
 cd ..
 
 node run.js

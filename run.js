@@ -48,6 +48,7 @@ async function runWasm(instance, inputJson) {
 // Example usage
 (async () => {
   const instance = await loadWasm("build/rust_plugin.wasm");
+  const instance2 = await loadWasm("build/rust_plugin2.wasm");      // SortKVPlugin
 
   const input1 = { args: [10, "lower than", 5], context: { set_context: "prev" } };
   const out1 = await runWasm(instance, input1);
@@ -56,4 +57,21 @@ async function runWasm(instance, inputJson) {
   const input2 = { args: [7, "higher than", 3], context: { set_context: "prev" } };
   const out2 = await runWasm(instance, input2);
   console.log("Plugin eval 2:", out2);
+
+
+{
+// --- Run SortKVPlugin ---
+  const kvInput = {
+    args: [
+      { a: 5, b: 2, c: 9 },   // object to sort
+      "desc"                  // order
+    ],
+    context: { set_context: "sorted" }
+  };
+  const out2 = await runWasm(instance2, kvInput);
+  console.log("Plugin eval 3:", out2);
+
+}
+
+
 })();
