@@ -35,10 +35,10 @@ macro_rules! export_plugin {
             let result_code = plugin.run(args, &mut context);
 
             // Write output back to WASM memory
-            $crate::write_output(out_ptr as usize, json!({
-                "context": context,
-                "result": result_code
-            }));
+	    $crate::write_output(out_ptr as usize, json!([result_code, context]));
+
+
+
         }
     };
 }
