@@ -35,7 +35,7 @@ export_plugin!(NynoIf);
 ```
 
 # Rust to WASM for Nyno Workflows
-Simple Rust to Nyno Plugin SDK (v2) for producing WASM that works well with NodeJS/Bun.
+Simple Rust to Nyno Plugin SDK (v3) for producing WASM that works well with NodeJS/Bun.
 
 Goal: One simple safe fast interface for creating WASM (created by Rust) in NodeJS/Bun backends/engines. In our case for Nyno Workflows.
 
