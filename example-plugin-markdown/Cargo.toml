@@ -1,13 +1,16 @@
 [package]
-name = "plugin_sdk"
+name = "example_plugin"
 version = "0.1.0"
 edition = "2024"
 
 [lib]
-name = "plugin_sdk"
-crate-type = ["rlib"]
+name = "plugin"
+crate-type = ["cdylib"]
 
 [dependencies]
+plugin_sdk = { path = "../plugin_sdk" }
 serde = { version = "1", features = ["derive"] }
-rmp-serde = "1"
 rmpv = { version = "1", features = ["with-serde"] }
+rmp-serde = "1"
+scraper = "0.24"
+html2md = "0.2"
